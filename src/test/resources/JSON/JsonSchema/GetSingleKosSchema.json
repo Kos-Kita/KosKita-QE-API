@@ -1,0 +1,116 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "kos_name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "rating": {
+          "type": "integer"
+        },
+        "price": {
+          "type": "integer"
+        },
+        "stock": {
+          "type": "integer"
+        },
+        "address": {
+          "type": "string"
+        },
+        "longitude": {
+          "type": "string"
+        },
+        "latitude": {
+          "type": "string"
+        },
+        "kos_facilities": {
+          "type": "string"
+        },
+        "kos_rules": {
+          "type": "string"
+        },
+        "photo_kos": {
+          "type": "object",
+          "properties": {
+            "main_kos_photo": {
+              "type": "string"
+            },
+            "front_kos_photo": {
+              "type": "string"
+            },
+            "back_kos_photo": {
+              "type": "string"
+            },
+            "front_room_photo": {
+              "type": "string"
+            },
+            "inside_room_photo": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "main_kos_photo",
+            "front_kos_photo",
+            "back_kos_photo",
+            "front_room_photo",
+            "inside_room_photo"
+          ]
+        },
+        "user": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "user_name": {
+              "type": "string"
+            },
+            "photo_profile": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "user_name",
+            "photo_profile"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "kos_name",
+        "description",
+        "category",
+        "rating",
+        "price",
+        "stock",
+        "address",
+        "longitude",
+        "latitude",
+        "kos_facilities",
+        "kos_rules",
+        "photo_kos",
+        "user"
+      ]
+    }
+  },
+  "required": [
+    "message",
+    "data"
+  ]
+}

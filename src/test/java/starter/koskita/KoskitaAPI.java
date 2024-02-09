@@ -4,6 +4,7 @@ import io.restassured.http.ContentType;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
 import starter.utils.Constants;
+import io.restassured.response.Response;
 
 import java.io.File;
 import java.util.Map;
