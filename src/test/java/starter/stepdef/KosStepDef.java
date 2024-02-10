@@ -82,7 +82,7 @@ public class KosStepDef {
 
     }
 
-    @When("Send request get kos")
+    @When("Send request get single kos")
     public void sendRequestGetKos() {
         SerenityRest.when().get(koskitaKosAPI.GET_SINGLE_KOS);
     }
@@ -114,5 +114,15 @@ public class KosStepDef {
                 .header("Authorization", Tokek)
                 .get(koskitaKosAPI.GET_MY_KOS);
 
+    }
+
+    @When("Get search kos with param {string} {string} {string} {string}")
+    public void getSearchKosWithParam(String address, String category, String minPrice, String maxPrice) {
+    koskitaKosAPI.setGetKos(address, category, minPrice, maxPrice);
+    }
+
+    @And("Send request get kos")
+    public void sendRequestGetRecKos() {
+        SerenityRest.when().get(koskitaKosAPI.GET_KOS);
     }
 }

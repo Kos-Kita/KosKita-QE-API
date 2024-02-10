@@ -12,7 +12,7 @@ Feature: Endpoint Kos
 
   Scenario Outline: Get kos with valid kos_id
     Given Get kos with valid "<kos_id>"
-    When Send request get kos
+    When Send request get single kos
     Then Status code should be 200
     And Response body message was "success read data."
     And Validate get kos_id json schema "GetSingleKosSchema.json"
@@ -22,7 +22,7 @@ Feature: Endpoint Kos
 
   Scenario Outline: Get kos with invalid kos_id
     Given Get kos with valid "<kos_id>"
-    When Send request get kos
+    When Send request get single kos
     Then Status code should be 400
     And Response body message was "id kos salah"
     Examples:
@@ -41,9 +41,50 @@ Feature: Endpoint Kos
       | json           |
       | LoginUser.json |
 
+
   Scenario: Get my kos without login
-    And Get my kos
+    When Get my kos
     And Send request get my kos
     Then Status code should be 401
     And Response body message was "invalid or expired jwt"
+
+  Scenario Outline: Successful kos search with all param
+    When Get search kos with param "<address>" "<category>" "<minPrice>" "<maxPrice>"
+    And Send request get kos
+    Then Status code should be 200
+    And Response body message was "success get kos"
+    And Validate get kos_id json schema "GetKosSchema.json"
+    Examples:
+      | address | category | minPrice | maxPrice |
+      | jakarta | campur   | 10000    | 1000001  |
+
+  Scenario Outline: Successful kos search with only one param
+    When Get search kos with param "<address>" "<category>" "<minPrice>" "<maxPrice>"
+    And Send request get kos
+    Then Status code should be 200
+    And Response body message was "success get kos"
+    And Validate get kos_id json schema "GetKosSchema.json"
+    Examples:
+      | address | category | minPrice | maxPrice |
+      | jakarta |          |          |          |
+
+  Scenario Outline: Empty kos search
+    When Get search kos with param "<address>" "<category>" "<minPrice>" "<maxPrice>"
+    And Send request get kos
+    Then Status code should be 200
+    And Response body message was "success get kos"
+    And Validate get kos_id json schema "GetKosSchema.json"
+    Examples:
+      | address | category | minPrice | maxPrice |
+      |         |          |          |          |
+
+  Scenario Outline: Invalid kos search with invalid param
+    When Get search kos with param "<address>" "<category>" "<minPrice>" "<maxPrice>"
+    And Send request get kos
+    Then Status code should be 400
+    And Response body message was "invalid search param"
+    Examples:
+      | address | category | minPrice | maxPrice |
+      |         | wakwaw   |          |          |
+
 

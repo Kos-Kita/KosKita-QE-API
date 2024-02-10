@@ -1,0 +1,319 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string"
+    },
+    "data": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "kos_name": {
+              "type": "string"
+            },
+            "rating": {
+              "type": "integer"
+            },
+            "category": {
+              "type": "string"
+            },
+            "price": {
+              "type": "integer"
+            },
+            "rooms": {
+              "type": "integer"
+            },
+            "address": {
+              "type": "string"
+            },
+            "kos_facilities": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "facility": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "facility"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "facility": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "facility"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "facility": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "facility"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "facility": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "facility"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "facility": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "facility"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "facility": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "facility"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "facility": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "facility"
+                  ]
+                }
+              ]
+            },
+            "photo_kos": {
+              "type": "object",
+              "properties": {
+                "main_kos_photo": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "main_kos_photo"
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "kos_name",
+            "rating",
+            "category",
+            "price",
+            "rooms",
+            "address",
+            "kos_facilities",
+            "photo_kos"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "kos_name": {
+              "type": "string"
+            },
+            "rating": {
+              "type": "integer"
+            },
+            "category": {
+              "type": "string"
+            },
+            "price": {
+              "type": "integer"
+            },
+            "rooms": {
+              "type": "integer"
+            },
+            "address": {
+              "type": "string"
+            },
+            "kos_facilities": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "facility": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "facility"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "facility": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "facility"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "facility": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "facility"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "facility": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "facility"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "facility": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "facility"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "facility": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "facility"
+                  ]
+                }
+              ]
+            },
+            "photo_kos": {
+              "type": "object",
+              "properties": {
+                "main_kos_photo": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "main_kos_photo"
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "kos_name",
+            "rating",
+            "category",
+            "price",
+            "rooms",
+            "address",
+            "kos_facilities",
+            "photo_kos"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "message",
+    "data"
+  ]
+}
