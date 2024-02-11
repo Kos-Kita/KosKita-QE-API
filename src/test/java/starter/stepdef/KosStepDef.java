@@ -11,13 +11,15 @@ import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
 import starter.koskita.KoskitaAPI;
 import starter.koskita.KoskitaKosAPI;
+import starter.koskita.KoskitaPhotoAPI;
 import starter.koskita.KoskitaResponses;
 import starter.utils.Constants;
+import java.io.IOException;
 
 
 import java.io.File;
 import static org.hamcrest.Matchers.equalTo;
-
+import static starter.koskita.KoskitaPhotoAPI.POST_PHOTO;
 
 
 public class KosStepDef {
@@ -27,6 +29,9 @@ public class KosStepDef {
     KoskitaAPI koskitaAPI;
     @Steps
     KoskitaKosAPI koskitaKosAPI;
+
+    @Steps
+    KoskitaPhotoAPI koskitaPhotoAPI;
 
     @Given("Login users with valid {string}")
     public void loginUsersWithValid(String json) {
@@ -150,5 +155,26 @@ public class KosStepDef {
         SerenityRest.when().delete(koskitaKosAPI.GET_SINGLE_KOS);
     }
 
+    Response response;
+    @And("Post photo using {string} with {string} {string} {string} {string} {string} and send request")
+    public void postPhotoWithUsingAndSendRequest(String kos_id, String main_kos_photo_path, String front_kos_photo_path, String back_kos_photo_path, String front_room_photo_path, String inside_room_photo_path) throws IOException {
+        File main_kos_photo = new File(main_kos_photo_path);
+        File front_kos_photo = new File(front_kos_photo_path);
+        File back_kos_photo = new File(back_kos_photo_path);
+        File front_room_photo = new File(front_room_photo_path);
+        File inside_room_photo = new File(inside_room_photo_path);
+        koskitaPhotoAPI.setPostPhoto(kos_id, main_kos_photo, front_kos_photo, back_kos_photo, front_room_photo, inside_room_photo);
+    }
 
+    @And("Post photo using {string} with empty and send request" )
+    public void postPhotoUsingWithEmpty(String kos_id) {
+        koskitaPhotoAPI.setPostPhotoEmpty(kos_id);
+    }
+
+    @And("Post photo using {string} with {string} and send request")
+    public void postPhotoUsingWithAndSendRequest(String kos_id, String main_kos_photo_path)throws IOException {
+        File main_kos_photo = new File(main_kos_photo_path);
+        koskitaPhotoAPI.setPostPhotoOnly1(kos_id, main_kos_photo);
+
+    }
 }
