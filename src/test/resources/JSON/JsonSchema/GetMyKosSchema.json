@@ -23,11 +23,121 @@
             "price": {
               "type": "integer"
             },
+            "rooms": {
+              "type": "integer"
+            },
             "address": {
               "type": "string"
             },
             "kos_facilities": {
-              "type": "string"
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "facility": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "facility"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "facility": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "facility"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "facility": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "facility"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "facility": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "facility"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "facility": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "facility"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "facility": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "facility"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "facility": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "facility"
+                  ]
+                }
+              ]
             },
             "photo_kos": {
               "type": "object",
@@ -46,6 +156,7 @@
             "kos_name",
             "rating",
             "price",
+            "rooms",
             "address",
             "kos_facilities",
             "photo_kos"

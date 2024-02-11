@@ -1,0 +1,22 @@
+{
+  "description": "kos ini sangat murah cik deket barbarbershop rusdi",
+  "category": "putri",
+  "price": 200500,
+  "rooms": 7,
+  "address": "budi mulya street",
+  "longitude": "-6.13164291973478",
+  "latitude": "106.84094241096291",
+  "kos_facilities": [
+    "24 JAM",
+    "TIDAK BOLEH MEROKOK",
+    "TIDAK BOLEH PETS",
+    "TIDAK BOLEH PESTA/EVENTS",
+    "TIDAK BOLEH PASUTRI"
+  ],
+  "kos_rules": [
+    "WIFI",
+    "AC",
+    "MEJA DAN KURSI",
+    "KASUR"
+  ]
+}

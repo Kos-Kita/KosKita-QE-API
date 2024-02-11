@@ -48,14 +48,12 @@ public class KosStepDef {
 
         // Menyimpan token menggunakan TokenManager
         Constants.setAuthToken(token);
+//        Constants.authToken = "Bearer " + token;
         System.out.println("Token disimpan: " + Constants.getAuthToken());
     }
 
 
-    @Then("Status code should be {int}")
-    public void statusCodeShouldBe(int statusCode) {
-        SerenityRest.then().statusCode(statusCode);
-    }
+
 
         @And("Response body message was {string} and role was {string}")
     public void responseBodyMessageWas(String message, String role) {
@@ -87,11 +85,7 @@ public class KosStepDef {
         SerenityRest.when().get(koskitaKosAPI.GET_SINGLE_KOS);
     }
 
-    @And("Response body message was {string}")
-    public void responseBodyMessageWas(String message) {
-        SerenityRest.and()
-                .body(KoskitaResponses.MESSAGE, equalTo(message));
-    }
+
 
     @And("Validate get kos_id json schema {string}")
     public void validateGetKos_idJsonSchema(String json) {
@@ -125,4 +119,35 @@ public class KosStepDef {
     public void sendRequestGetRecKos() {
         SerenityRest.when().get(koskitaKosAPI.GET_KOS);
     }
+
+
+    @When("Get kos")
+    public void getKos() {
+        koskitaKosAPI.setGetMyKos();
+    }
+
+    @And("Send request get kos recommendation")
+    public void sendRequestGetKosRecommendation() {;
+        SerenityRest.when().get(koskitaKosAPI.GET_REC_KOS);
+    }
+
+
+    @And("Create kos using {string} and send request")
+    public void createKosUsingAndSendRequest(String json) {
+        File jsonCreateUser = new File(Constants.REQ_BODY + json);
+        koskitaKosAPI.postCreateKos(jsonCreateUser);
+    }
+
+    @And("Update kos with {string} using {string} and send request")
+    public void updateKosWithUsingAndSendRequest(String kos_id, String json) {
+        File jsonUpdateKos = new File(Constants.REQ_BODY+json);
+        koskitaKosAPI.updateKos(kos_id, jsonUpdateKos);
+    }
+
+    @And("Delete kos with {string}")
+    public void deleteKosWith(String kos_id) {
+        koskitaKosAPI.setDeleteKos(kos_id);
+    }
+
+
 }
