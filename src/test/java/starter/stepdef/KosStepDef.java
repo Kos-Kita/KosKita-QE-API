@@ -144,9 +144,10 @@ public class KosStepDef {
         koskitaKosAPI.updateKos(kos_id, jsonUpdateKos);
     }
 
-    @And("Delete kos with {string}")
+    @And("Delete kos with {string} and request")
     public void deleteKosWith(String kos_id) {
         koskitaKosAPI.setDeleteKos(kos_id);
+        SerenityRest.when().delete(koskitaKosAPI.GET_SINGLE_KOS);
     }
 
 

@@ -203,7 +203,7 @@ Feature: Endpoint Kos
   Scenario Outline: Delete kos with valid kos_id using role owner
     Given Login users with valid "<UserJson>"
     When Send request login user
-    And Delete kos with "<kos_id>"
+    And Delete kos with "<kos_id>" and send request
     Then Status code should be 200
     And Response body message was "success delete kos"
     Examples:
@@ -213,7 +213,7 @@ Feature: Endpoint Kos
   Scenario Outline: Delete kos with valid kos_id using role renter
     Given Login users with valid "<UserJson>"
     When Send request login user
-    And Delete kos with "<kos_id>"
+    And Delete kos with "<kos_id>" and request
     Then Status code should be 400
     And Response body message was "kos ini bukan milik Anda"
     Examples:
@@ -223,7 +223,7 @@ Feature: Endpoint Kos
   Scenario Outline: Delete kos other people with valid kos_id using role owner
     Given Login users with valid "<UserJson>"
     When Send request login user
-    And Delete kos with "<kos_id>"
+    And Delete kos with "<kos_id>" and request
     Then Status code should be 400
     And Response body message was "kos ini bukan milik Anda"
     Examples:
@@ -233,14 +233,11 @@ Feature: Endpoint Kos
   Scenario Outline: Delete kos without kos_id
     Given Login users with valid "<UserJson>"
     When Send request login user
-    And Delete kos with "<kos_id>"
+    And Delete kos with "<kos_id>" and request
     Then Status code should be 405
     And Response body message was "Method Not Allowed"
     Examples:
-      | kos_id | UserJson        |
+      | kos_id | UserJson            |
       |        | LoginUserOwner.json |
-
-
-
 
 
