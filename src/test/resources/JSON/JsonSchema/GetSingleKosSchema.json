@@ -17,16 +17,16 @@
         "description": {
           "type": "string"
         },
-        "category": {
-          "type": "string"
+        "rooms": {
+          "type": "integer"
         },
         "rating": {
           "type": "integer"
         },
-        "price": {
-          "type": "integer"
+        "category": {
+          "type": "string"
         },
-        "stock": {
+        "price": {
           "type": "integer"
         },
         "address": {
@@ -39,10 +39,149 @@
           "type": "string"
         },
         "kos_facilities": {
-          "type": "string"
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "facility": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "facility"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "facility": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "facility"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "facility": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "facility"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "facility": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "facility"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "facility": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "facility"
+              ]
+            }
+          ]
         },
         "kos_rules": {
-          "type": "string"
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "rule": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "rule"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "rule": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "rule"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "rule": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "rule"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "rule": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "rule"
+              ]
+            }
+          ]
         },
         "photo_kos": {
           "type": "object",
@@ -95,10 +234,10 @@
         "id",
         "kos_name",
         "description",
-        "category",
+        "rooms",
         "rating",
+        "category",
         "price",
-        "stock",
         "address",
         "longitude",
         "latitude",
