@@ -6,6 +6,7 @@ public class Constants {
     public static String JSON_DIR = DIR+"/src/test/resources/JSON";
     public static String REQ_BODY = JSON_DIR + "/ReqBody/";
     public static String JSON_SCHEMA = JSON_DIR + "/JsonSchema/";
+    public static String PHOTO_DIR = DIR + "/src/test/resources/Photo";
 
     public static String authToken;
     public static void setAuthToken(String token) {

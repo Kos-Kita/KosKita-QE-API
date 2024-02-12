@@ -18,6 +18,9 @@ import java.io.IOException;
 
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+
 import static org.hamcrest.Matchers.equalTo;
 import static starter.koskita.KoskitaPhotoAPI.POST_PHOTO;
 
@@ -198,4 +201,12 @@ public class KosStepDef {
         File main_kos_photo = new File(main_kos_photo_path);
         koskitaPhotoAPI.setPutPhotoOnly1(kos_id, main_kos_photo);
     }
+
+    @Given("Post photo using 2 {string} with {string} {string} {string} {string} {string} and send request")
+    public void postPhotoMetode2(String kos_id, String main_kos_photo, String front_kos_photo, String back_kos_photo,
+                                 String front_room_photo, String inside_room_photo) {
+        koskitaPhotoAPI.postPhotoMetode2(kos_id, main_kos_photo, front_kos_photo, back_kos_photo, front_room_photo,
+                inside_room_photo);
+    }
+
 }

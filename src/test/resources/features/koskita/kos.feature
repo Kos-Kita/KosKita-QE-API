@@ -7,8 +7,8 @@ Feature: Endpoint Kos
     And Response body message was "success login" and role was "owner"
     And Validate login user json schema "LoginUserSchema.json"
     Examples:
-      | json           |
-      | LoginUser.json |
+      | json            |
+      | LoginUserOwner.json |
 
 #KOS001
   Scenario Outline: Get kos with valid kos_id
@@ -41,8 +41,8 @@ Feature: Endpoint Kos
     And Response body message was "success get kos"
     And Validate get kos_id json schema "GetMyKosSchema.json"
     Examples:
-      | json           |
-      | LoginUser.json |
+      | json               |
+      | LoginUserOwner.json |
 
 #KOS004
   Scenario Outline: Get my kos without login
@@ -157,7 +157,7 @@ Feature: Endpoint Kos
     And Response body message was "success update kos"
     Examples:
       | kos_id | json           | UserJson            |
-      | 9      | UpdateKos.json | LoginUserOwner.json |
+      | 3      | UpdateKos.json | LoginUserOwner.json |
 
   Scenario Outline: Update kos with valid kos_id using role renter
     Given Login users with valid "<UserJson>"
@@ -178,7 +178,7 @@ Feature: Endpoint Kos
     And Response body message was "invalid or expired jwt"
     Examples:
       | kos_id | json           | UserJson            |
-      | 9      | UpdateKos.json | LoginUserEmpty.json |
+      | 3      | UpdateKos.json | LoginUserEmpty.json |
 
   Scenario Outline: Update kos with invalid kos_id using role owner
     Given Login users with valid "<UserJson>"
@@ -198,7 +198,7 @@ Feature: Endpoint Kos
     And Response body message was "success update kos"
     Examples:
       | kos_id | json            | UserJson            |
-      | 9      | UpdateKos1.json | LoginUserOwner.json |
+      | 3      | UpdateKos1.json | LoginUserOwner.json |
 
   Scenario Outline: Delete kos with valid kos_id using role owner
     Given Login users with valid "<UserJson>"
@@ -249,7 +249,7 @@ Feature: Endpoint Kos
     And Response body message was "success upload image"
     Examples:
       | kos_id | UserJson            | main_kos_photo                                      | front_kos_photo                        | back_kos_photo                         | front_room_photo                        | inside_room_photo                      |
-      | 14     | LoginUserOwner.json | C:\\Users\\keian\\Downloads\\2.-usaha-kos-kosan.jpg | C:\\Users\\keian\\Downloads\\kos 5.jpg | C:\\Users\\keian\\Downloads\\kos 2.jpg | C:\\Users\\keian\\Downloads\\kos 3.jpeg | C:\\Users\\keian\\Downloads\\kos 4.jpg |
+      | 3      | LoginUserOwner.json | C:\\Users\\keian\\Downloads\\2.-usaha-kos-kosan.jpg | C:\\Users\\keian\\Downloads\\kos 5.jpg | C:\\Users\\keian\\Downloads\\kos 2.jpg | C:\\Users\\keian\\Downloads\\kos 3.jpeg | C:\\Users\\keian\\Downloads\\kos 4.jpg |
 
 #IMG002
   Scenario Outline: Post photo using role renter with kos_id
@@ -261,6 +261,16 @@ Feature: Endpoint Kos
     Examples:
       | kos_id | UserJson        | main_kos_photo                                      | front_kos_photo                        | back_kos_photo                         | front_room_photo                        | inside_room_photo                      |
       | 14     | LoginUserRenter.json | C:\\Users\\keian\\Downloads\\2.-usaha-kos-kosan.jpg | C:\\Users\\keian\\Downloads\\kos 5.jpg | C:\\Users\\keian\\Downloads\\kos 2.jpg | C:\\Users\\keian\\Downloads\\kos 3.jpeg | C:\\Users\\keian\\Downloads\\kos 4.jpg |
+
+  Scenario Outline: Post photo using role owner with kos_id
+    Given Login users with valid "<UserJson>"
+    When Send request login user
+    And Post photo using 2 "<kos_id>" with "<main_kos_photo>" "<front_kos_photo>" "<back_kos_photo>" "<front_room_photo>" "<inside_room_photo>" and send request
+    Then Status code should be 200
+    And Response body message was "success upload image"
+    Examples:
+      | kos_id | UserJson            | main_kos_photo         | front_kos_photo | back_kos_photo | front_room_photo | inside_room_photo |
+      | 2      | LoginUserOwner.json | 2.-usaha-kos-kosan.jpg | depan kos.jpg   | kos 2.jpg      | kos 3.jpeg       | kos 4.jpg         |
 
 #IMG003
   Scenario Outline: Post photo using kos_id without login
@@ -306,6 +316,7 @@ Feature: Endpoint Kos
       | kos_id | UserJson        | main_kos_photo                                      | front_kos_photo                        | back_kos_photo                         | front_room_photo                        | inside_room_photo                      |
       | 14     | LoginUserOwner.json | C:\\Users\\keian\\Downloads\\2.-usaha-kos-kosan.jpg | C:\\Users\\keian\\Downloads\\kos 5.jpg | C:\\Users\\keian\\Downloads\\kos 2.jpg | C:\\Users\\keian\\Downloads\\kos 3.jpeg | C:\\Users\\keian\\Downloads\\kos 4.jpg |
 
+
 #IMG007
   Scenario Outline: Update photo using role renter with kos_id
     Given Login users with valid "<UserJson>"
@@ -347,5 +358,5 @@ Feature: Endpoint Kos
     Then Status code should be 200
     And Response body message was "success upload image"
     Examples:
-      | kos_id | UserJson        | main_kos_photo                                      | front_kos_photo                        | back_kos_photo                         | front_room_photo                        | inside_room_photo                      |
-      | 14     | LoginUserOwner.json | C:\\Users\\keian\\Downloads\\2.-usaha-kos-kosan.jpg | C:\\Users\\keian\\Downloads\\kos 5.jpg | C:\\Users\\keian\\Downloads\\kos 2.jpg | C:\\Users\\keian\\Downloads\\kos 3.jpeg | C:\\Users\\keian\\Downloads\\kos 4.jpg |
+      | kos_id | UserJson            | main_kos_photo                                      | front_kos_photo                        | back_kos_photo                         | front_room_photo                        | inside_room_photo                      |
+      | 3      | LoginUserOwner.json | C:\\Users\\keian\\Downloads\\2.-usaha-kos-kosan.jpg | C:\\Users\\keian\\Downloads\\kos 5.jpg | C:\\Users\\keian\\Downloads\\kos 2.jpg | C:\\Users\\keian\\Downloads\\kos 3.jpeg | C:\\Users\\keian\\Downloads\\kos 4.jpg |
