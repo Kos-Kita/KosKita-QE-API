@@ -12,6 +12,8 @@ import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import static io.restassured.RestAssured.post;
 
@@ -91,5 +93,47 @@ public class KoskitaPhotoAPI {
                 .multiPart("main_kos_photo", main_kos_photo.getName(), new FileInputStream(main_kos_photo))
                 .put(updatePhotoUrl);
     }
+
+    @Step("Post photo 2")
+    public void postPhotoMetode2(String kos_id, String main_kos_photo, String front_kos_photo, String back_kos_photo,
+                                 String front_room_photo, String inside_room_photo) {
+        Map<String, Object> formData = validData(main_kos_photo, front_kos_photo, back_kos_photo, front_room_photo,
+                inside_room_photo);
+        postPhoto2(kos_id, formData);
+    }
+
+    private Map<String, Object> validData(String main_kos_photo, String front_kos_photo, String back_kos_photo,
+                                          String front_room_photo, String inside_room_photo) {
+        Map<String, Object> formData = new HashMap<>();
+        File fileMainKosPhoto = new File(Constants.PHOTO_DIR, main_kos_photo);
+        File fileFrontKosPhoto = new File(Constants.PHOTO_DIR, front_kos_photo);
+        File fileBackKosPhoto = new File(Constants.PHOTO_DIR, back_kos_photo);
+        File fileFrontRoomPhoto = new File(Constants.PHOTO_DIR, front_room_photo);
+        File fileInsideRoomPhoto = new File(Constants.PHOTO_DIR, inside_room_photo);
+
+        formData.put("main_kos_photo", fileMainKosPhoto);
+        formData.put("front_kos_photo", fileFrontKosPhoto);
+        formData.put("back_kos_photo", fileBackKosPhoto);
+        formData.put("front_room_photo", fileFrontRoomPhoto);
+        formData.put("inside_room_photo", fileInsideRoomPhoto);
+
+        return formData;
+    }
+
+    private void postPhoto2(String kos_id, Map<String, ?> formData) {
+        String token = "Bearer " + Constants.getAuthToken();
+        String postPhotoUrl = POST_PHOTO.replace("{kos_id}", kos_id);
+
+        Response response = SerenityRest.given().header("Authorization", token).contentType("multipart/form-data")
+                .multiPart("main_kos_photo", (File) formData.get("main_kos_photo"))
+                .multiPart("front_kos_photo", (File) formData.get("front_kos_photo"))
+                .multiPart("back_kos_photo", (File) formData.get("back_kos_photo"))
+                .multiPart("front_room_photo", (File) formData.get("front_room_photo"))
+                .multiPart("inside_room_photo", (File) formData.get("inside_room_photo"))
+                .post(postPhotoUrl);
+
+        // Add logging or other handling here as needed.
+    }
+
 
 }
