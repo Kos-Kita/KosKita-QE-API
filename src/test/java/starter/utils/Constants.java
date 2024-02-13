@@ -16,5 +16,8 @@ public class Constants {
         return authToken;
     }
 
+    public static String CONSTANT_TOKEN_GET_USER_PROFILE = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE3MDc3NTQzNDMsInVzZXJJZCI6MTN9.aiICOFJWTDveEbG5lDADVs3UyoJr6Dw0Tnk3Z11VIJg";
+    public static String CONSTANT_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE3MDc5MTI4NjEsInVzZXJJZCI6MjV9.6ZITebXLnD0P39Xe_KK_GtdKFAo9AObE7QrwmEtRwpM";
+
 
 }
