@@ -9,8 +9,14 @@ import java.io.IOException;
 import static org.hamcrest.Matchers.equalTo;
 
 public class KoskitaResponses {
-
+    public static String EMAIL = "data.email";
+    public static String USERNAME = "data.user_name";
+    public static String GENDER = "data.gender";
+    public static String NAME = "data.name";
     public static String MESSAGE = "message";
+    public static String PASSWORD = "password";
+    public static String PHOTOPROFILE = "photo_profile";
+
     public static String ROLE = "data.role";
 
     @Then("Status code should be {int}")

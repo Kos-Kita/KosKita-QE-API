@@ -1,5 +1,6 @@
 Feature: Endpoint Kos
 
+  #USR008
   Scenario Outline: Login owner with valid data
     Given Login users with valid "<json>"
     When Send request login user
