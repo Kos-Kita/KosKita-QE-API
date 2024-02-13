@@ -159,54 +159,45 @@ public class KosStepDef {
     }
 
     Response response;
-    @And("Post photo using {string} with {string} {string} {string} {string} {string} and send request")
-    public void postPhotoWithUsingAndSendRequest(String kos_id, String main_kos_photo_path, String front_kos_photo_path, String back_kos_photo_path, String front_room_photo_path, String inside_room_photo_path) throws IOException {
-        File main_kos_photo = new File(main_kos_photo_path);
-        File front_kos_photo = new File(front_kos_photo_path);
-        File back_kos_photo = new File(back_kos_photo_path);
-        File front_room_photo = new File(front_room_photo_path);
-        File inside_room_photo = new File(inside_room_photo_path);
-        koskitaPhotoAPI.setPostPhoto(kos_id, main_kos_photo, front_kos_photo, back_kos_photo, front_room_photo, inside_room_photo);
-    }
 
     @And("Post photo using {string} with empty and send request" )
     public void postPhotoUsingWithEmpty(String kos_id) {
         koskitaPhotoAPI.setPostPhotoEmpty(kos_id);
     }
 
-    @And("Post photo using {string} with {string} and send request")
-    public void postPhotoUsingWithAndSendRequest(String kos_id, String main_kos_photo_path)throws IOException {
-        File main_kos_photo = new File(main_kos_photo_path);
-        koskitaPhotoAPI.setPostPhotoOnly1(kos_id, main_kos_photo);
-
-    }
-
-    @And("Update photo using {string} with {string} {string} {string} {string} {string} and send request")
-    public void updatePhotoWithUsingAndSendRequest(String kos_id, String main_kos_photo_path, String front_kos_photo_path, String back_kos_photo_path, String front_room_photo_path, String inside_room_photo_path) throws IOException {
-        File main_kos_photo = new File(main_kos_photo_path);
-        File front_kos_photo = new File(front_kos_photo_path);
-        File back_kos_photo = new File(back_kos_photo_path);
-        File front_room_photo = new File(front_room_photo_path);
-        File inside_room_photo = new File(inside_room_photo_path);
-        koskitaPhotoAPI.setUpdatePhoto(kos_id, main_kos_photo, front_kos_photo, back_kos_photo, front_room_photo, inside_room_photo);
-    }
 
     @And("Update photo using {string} with empty and send request")
     public void updatePhotoUsingWithEmptyAndSendRequest(String kos_id) {
         koskitaPhotoAPI.setUpdatePhotoEmpty(kos_id);
     }
 
-    @And("Update photo using {string} with {string} and send request")
-    public void updatePhotoUsingWithAndSendRequest(String kos_id, String main_kos_photo_path)throws IOException {
-        File main_kos_photo = new File(main_kos_photo_path);
-        koskitaPhotoAPI.setPutPhotoOnly1(kos_id, main_kos_photo);
-    }
 
-    @Given("Post photo using 2 {string} with {string} {string} {string} {string} {string} and send request")
+    @And("Post photo using {string} with {string} {string} {string} {string} {string} and send request")
     public void postPhotoMetode2(String kos_id, String main_kos_photo, String front_kos_photo, String back_kos_photo,
-                                 String front_room_photo, String inside_room_photo) {
+                                 String front_room_photo, String inside_room_photo)throws IOException {
         koskitaPhotoAPI.postPhotoMetode2(kos_id, main_kos_photo, front_kos_photo, back_kos_photo, front_room_photo,
                 inside_room_photo);
     }
+
+    @And("Post photo using {string} with {string} and send request")
+    public void postPhotoUsingWithAndSendRequest2(String kos_id, String main_kos_photo) throws IOException {
+        koskitaPhotoAPI.setPostPhotoOnly1part2(kos_id, main_kos_photo);
+    }
+
+    @And("Update photo using {string} with {string} {string} {string} {string} {string} and send request")
+    public void putPhotoMetode2(String kos_id, String main_kos_photo, String front_kos_photo, String back_kos_photo,
+                                 String front_room_photo, String inside_room_photo)throws IOException {
+        koskitaPhotoAPI.putPhotoMetode2(kos_id, main_kos_photo, front_kos_photo, back_kos_photo, front_room_photo,
+                inside_room_photo);
+    }
+
+    @And("Update photo using {string} with {string} and send request")
+    public void putPhotoUsingWithOnlyOne(String kos_id, String main_kos_photo) throws IOException {
+        koskitaPhotoAPI.setPutPhotoOnly1part2(kos_id, main_kos_photo);
+    }
+
+
+
+
 
 }

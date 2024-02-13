@@ -1,3 +1,16 @@
 {
-  "kos_name": "Kos mamang rusdi dan si imut aseli ngawi"
+  "kos_facilities": [
+    "WIFI",
+    "AC",
+    "MEJA DAN KURSI",
+    "KASUR"
+  ],
+  "kos_rules": [
+    "24 JAM",
+    "TIDAK BOLEH MEROKOK",
+    "TIDAK BOLEH PETS",
+    "TIDAK BOLEH PESTA/EVENTS",
+    "TIDAK BOLEH PASUTRI",
+    "HANYA BISA MAKS. 1 ORANG/ KAMAR"
+  ]
 }
