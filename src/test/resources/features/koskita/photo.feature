@@ -88,7 +88,7 @@ Feature: Endpoint image
     Then Status code should be 401
     And Response body message was "invalid or expired jwt"
     Examples:
-      | kos_id | UserJson        | main_kos_photo         | front_kos_photo | back_kos_photo | front_room_photo | inside_room_photo |
+      | kos_id | UserJson            | main_kos_photo         | front_kos_photo | back_kos_photo | front_room_photo | inside_room_photo |
       | 7      | LoginUserEmpty.json | 2.-usaha-kos-kosan.jpg | depan kos.jpg   | kos 2.jpg      | kos 3.jpeg       | kos 4.jpg         |
 
 

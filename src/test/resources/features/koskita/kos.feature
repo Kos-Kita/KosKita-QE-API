@@ -205,7 +205,7 @@ Feature: Endpoint Kos
     And Response body message was "success update kos"
     Examples:
       | kos_id | json            | UserJson            |
-      | 3      | UpdateKos1.json | LoginUserOwner.json |
+      | 7      | UpdateKos1.json | LoginUserOwner.json |
 
 #KOS019
   Scenario Outline: Delete kos with valid kos_id using role owner
@@ -216,7 +216,7 @@ Feature: Endpoint Kos
     And Response body message was "success delete kos"
     Examples:
       | kos_id | UserJson            |
-      | 14     | LoginUserOwner.json |
+      | 1      | LoginUserOwner.json |
 
 #KOS020
   Scenario Outline: Delete kos with valid kos_id using role renter
