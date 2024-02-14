@@ -66,7 +66,7 @@ Feature: Endpoint Kos
     And Validate get kos_id json schema "GetKosSchema.json"
     Examples:
       | address | category | minPrice | maxPrice |
-      | jakarta | campur   | 10000    | 1000001  |
+      | budi       | campur   | 10000    | 1000001  |
 
 #KOS006
   Scenario Outline: Successful kos search with only one param
@@ -77,7 +77,7 @@ Feature: Endpoint Kos
     And Validate get kos_id json schema "GetKosSchema.json"
     Examples:
       | address | category | minPrice | maxPrice |
-      | jakarta |          |          |          |
+      | budi       |          |          |          |
 
 #KOS007
   Scenario Outline: Empty kos search
