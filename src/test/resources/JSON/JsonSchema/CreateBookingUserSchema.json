@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "order_id": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "integer"
+        },
+        "start_date": {
+          "type": "string"
+        },
+        "payment_method": {
+          "type": "string"
+        },
+        "total": {
+          "type": "integer"
+        },
+        "status": {
+          "type": "string"
+        },
+        "bank": {
+          "type": "string"
+        },
+        "virtual_number": {
+          "type": "string"
+        },
+        "expired_at": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "order_id",
+        "user_id",
+        "start_date",
+        "payment_method",
+        "total",
+        "status",
+        "bank",
+        "virtual_number",
+        "expired_at"
+      ]
+    }
+  },
+  "required": [
+    "message",
+    "data"
+  ]
+}

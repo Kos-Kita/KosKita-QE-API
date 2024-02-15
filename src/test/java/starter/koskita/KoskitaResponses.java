@@ -14,6 +14,8 @@ public class KoskitaResponses {
     public static String GENDER = "data.gender";
     public static String NAME = "data.name";
     public static String MESSAGE = "message";
+    public static String KOS_ID = "kos_id";
+    public static String BOOKING_CODE = "data.booking_code";
     public static String PASSWORD = "password";
     public static String PHOTOPROFILE = "photo_profile";
 
