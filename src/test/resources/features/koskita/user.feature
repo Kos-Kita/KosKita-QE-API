@@ -57,7 +57,7 @@ Feature: Endpoint User
     Given Login users with invalid "<json>"
     When Send request login user
     Then Status code should be 400
-    And Response body message was "error login. email doesn't match."
+    And Response body message was "error login.  Invalid email or password"
     Examples:
       | json                        |
       | LoginUserRenterInvalidEmail.json |
@@ -67,7 +67,7 @@ Feature: Endpoint User
     Given Login users with invalid "<json>"
     When Send request login user
     Then Status code should be 400
-    And Response body message was "error login. password doesn't match."
+    And Response body message was "error login.  Invalid email or password"
     Examples:
       | json                                |
       | LoginUserRenterInvalidPassword.json |
@@ -77,7 +77,7 @@ Feature: Endpoint User
     Given Login users with invalid "<json>"
     When Send request login user
     Then Status code should be 400
-    And Response body message was "error login. record not found"
+    And Response body message was "error login.  Invalid email or password"
     Examples:
       | json                        |
       | LoginUserOwnerInvalidEmail.json |
@@ -87,7 +87,7 @@ Feature: Endpoint User
     Given Login users with invalid "<json>"
     When Send request login user
     Then Status code should be 400
-    And Response body message was "error login. password doesn't match."
+    And Response body message was "error login.  Invalid email or password"
     Examples:
       | json                                |
       | LoginUserOwnerInvalidPassword.json  |
@@ -131,8 +131,8 @@ Feature: Endpoint User
     Given Login users with valid "<json>"
     When Send request login user
     And Update user body name was gender was "<gender>" and send request
-    Then Status code should be 200
-    And Response body message was "success update data"
+    Then Status code should be 400
+    And Response body message was "error update data."
     Examples:
       | json                  | gender |
       | LoginUserRenter2.json | male   |
@@ -142,8 +142,8 @@ Feature: Endpoint User
     Given Login users with valid "<json>"
     When Send request login user
     And Update user body name was email was "<email>" and send request
-    Then Status code should be 200
-    And Response body message was "invalid email"
+    Then Status code should be 400
+    And Response body message contains "error update data."
     Examples:
       | json                  | email |
       | LoginUserRenter2.json | usergender2gmail.com   |

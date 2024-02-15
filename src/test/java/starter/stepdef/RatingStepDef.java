@@ -1,7 +1,6 @@
 package starter.stepdef;
 
 import io.cucumber.java.en.Given;
-import jdk.vm.ci.meta.Constant;
 import net.thucydides.core.annotations.Steps;
 import starter.koskita.KosKitaRatingAPI;
 import starter.utils.Constants;
