@@ -1,11 +1,11 @@
 # API Automation Testing using Rest Assured
 
-This repository contains the API automation testing project using Rest Assured, developed by Keianggoro, Rayhan, and Neni.
+This repository contains the API automation testing project using Rest Assured, developed by Keianggoro, Andree.
 
 ## Project Overview
 
 - **Base URL:** [https://l3n.my.id/](https://l3n.my.id/)
-- **Test Case Documentation:** [Test Cases](https://docs.google.com/spreadsheets/d/1vOiRSU0w4vXTKcBU2CDNy3gBow6ha8OTchf0a5d4Ok0/edit)
+- **Test Case Documentation:** [Test Cases](https://docs.google.com/spreadsheets/d/1dgWSx-NL-JMQ6PvKblj2AM62h2D3T93Jhc5w1BqWgXY/edit#gid=1069829665)
 
 ## Getting Started
 

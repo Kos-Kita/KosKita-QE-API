@@ -169,12 +169,19 @@ public class KoskitaPhotoAPI {
         String token = "Bearer " + Constants.getAuthToken();
         String postPhotoUrl = POST_PHOTO.replace("{kos_id}", kos_id);
 
-        Response response = SerenityRest.given().header("Authorization", token).contentType("multipart/form-data")
+        Response response = SerenityRest.given()
+                .header("Authorization", token).contentType("multipart/form-data")
                 .multiPart("main_kos_photo", (File) formData.get("main_kos_photo"))
                 .put(postPhotoUrl);
 
         // Add logging or other handling here as needed.
     }
+
+
+
+
+
+
 
 
 }

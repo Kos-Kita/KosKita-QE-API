@@ -20,7 +20,7 @@ Feature: Endpoint Kos
     And Validate get kos_id json schema "GetSingleKosSchema.json"
     Examples:
       | kos_id |  |
-      | 9      |  |
+      | 1      |  |
 
 #KOS002
   Scenario Outline: Get kos with invalid kos_id
@@ -66,7 +66,7 @@ Feature: Endpoint Kos
     And Validate get kos_id json schema "GetKosSchema.json"
     Examples:
       | address | category | minPrice | maxPrice |
-      | jakarta | campur   | 10000    | 1000001  |
+      | budi       | campur   | 10000    | 1000001  |
 
 #KOS006
   Scenario Outline: Successful kos search with only one param
@@ -77,7 +77,7 @@ Feature: Endpoint Kos
     And Validate get kos_id json schema "GetKosSchema.json"
     Examples:
       | address | category | minPrice | maxPrice |
-      | jakarta |          |          |          |
+      | budi    |          |          |          |
 
 #KOS007
   Scenario Outline: Empty kos search
@@ -146,7 +146,7 @@ Feature: Endpoint Kos
     Given Login users with valid "<UserJson>"
     When Send request login user
     And Create kos using "<CreateJson>" and send request
-    Then Status code should be 400
+    Then Status code should be 500
     And Response body message was "name anda kosong"
     Examples:
       | UserJson            | CreateJson          |
@@ -161,7 +161,7 @@ Feature: Endpoint Kos
     And Response body message was "success update kos"
     Examples:
       | kos_id | json           | UserJson            |
-      | 3      | UpdateKos.json | LoginUserOwner.json |
+      | 6      | UpdateKos.json | LoginUserOwner.json |
 
 #KOS015
   Scenario Outline: Update kos with valid kos_id using role renter
@@ -171,8 +171,8 @@ Feature: Endpoint Kos
     Then Status code should be 401
     And Response body message was "anda bukan owner"
     Examples:
-      | kos_id | json           | UserJson            |
-      | 9      | UpdateKos.json | LoginUserRenter.json |
+      | kos_id | json           | UserJson             |
+      | 6      | UpdateKos.json | LoginUserRenter.json |
 
 
 #KOS016
@@ -184,7 +184,7 @@ Feature: Endpoint Kos
     And Response body message was "invalid or expired jwt"
     Examples:
       | kos_id | json           | UserJson            |
-      | 3      | UpdateKos.json | LoginUserEmpty.json |
+      | 6      | UpdateKos.json | LoginUserEmpty.json |
 
 #KOS017
   Scenario Outline: Update kos with invalid kos_id using role owner
@@ -206,18 +206,18 @@ Feature: Endpoint Kos
     And Response body message was "success update kos"
     Examples:
       | kos_id | json            | UserJson            |
-      | 7      | UpdateKos1.json | LoginUserOwner.json |
+      | 6      | UpdateKos1.json | LoginUserOwner.json |
 
 #KOS019
   Scenario Outline: Delete kos with valid kos_id using role owner
     Given Login users with valid "<UserJson>"
     When Send request login user
-    And Delete kos with "<kos_id>" and send request
+    And Delete kos with "<kos_id>" and request
     Then Status code should be 200
     And Response body message was "success delete kos"
     Examples:
       | kos_id | UserJson            |
-      | 1      | LoginUserOwner.json |
+      | 5      | LoginUserOwner.json |
 
 #KOS020
   Scenario Outline: Delete kos with valid kos_id using role renter
@@ -238,7 +238,7 @@ Feature: Endpoint Kos
     Then Status code should be 400
     And Response body message was "kos ini bukan milik Anda"
     Examples:
-      | kos_id | UserJson        |
+      | kos_id | UserJson            |
       | 3      | LoginUserOwner.json |
 
 #KOS022

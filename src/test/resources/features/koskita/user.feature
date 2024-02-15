@@ -147,19 +147,18 @@ Feature: Endpoint User
     Examples:
       | json                  | name   | user_name   | email            | password | photo_profile                                                 | gender |
       | LoginUserRenter2.json | createuser4 | createuser4      | createuser4@gmail.com | user123  | D:\\KosKita-QE-API\\src\\test\\resources\\photo\\download.jpg | male   |
+  
+  @USR016
+  Scenario Outline: Update user gender
+    Given Login users with valid "<json>"
+    When Send request login user
+    And Update user body name was gender was "<gender>" and send request
+    Then Status code should be 400
+    And Response body message was "error update data."
+    Examples:
+      | json                  | gender |
+      | LoginUserRenter2.json | male   |
 
-
-#  SCENARIO INI TIDAK BISA DIUPDATE UNTUK GENDER , HANYA BISA DIBUAT UPDATE SELAIN GENDER
-#  @USR016
-#  Scenario Outline: Update user gender
-#    Given Login users with valid "<json>"
-#    When Send request login user
-#    And Update user body name was gender was "<gender>" and send request
-#    Then Status code should be 200
-#    And Response body message was "success update data"
-#    Examples:
-#      | json                  | gender |
-#      | LoginUserRenter2.json | male   |
 
   @USR017
   Scenario Outline: Update user invalid email
@@ -167,7 +166,7 @@ Feature: Endpoint User
     When Send request login user
     And Update user body name was email was "<email>" and send request
     Then Status code should be 400
-    And Response body message contains "error update data"
+    And Response body message contains "error update data."
     Examples:
       | json                  | email |
       | LoginUserRenter2.json | usergender2gmail.com   |
