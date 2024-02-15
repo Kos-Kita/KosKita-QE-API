@@ -73,8 +73,10 @@ public class KoskitaUserAPI {
 
     @Step("Delete user with valid id")
     public void deleteValidUser(){
-        SerenityRest.given()
-                .header("Authorization", "Bearer "+ Constants.CONSTANT_TOKEN);
+        String token = "Bearer " + Constants.getAuthToken();
+        Response response = SerenityRest.given()
+         .header("Authorization", token)
+                .put(DELETE_USER);
     }
 
 }
