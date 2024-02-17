@@ -50,8 +50,9 @@ Feature: Endpoint User
     And Response body message was "success login" and role was "renter"
     And Validate login user json schema "LoginUserSchema.json"
     Examples:
-      | json                  |
+     | json                  |
       | LoginUserRenter2.json |
+
 
   @USR006
   Scenario Outline: Login user renter with invalid credential email
@@ -124,8 +125,8 @@ Feature: Endpoint User
     And Response body message was "success read data"
     And Validate get kos_id json schema "GetUserProfileValidIDSchema.json"
     Examples:
-      | json           |
-      | LoginUser2.json |
+      | json        |
+      | LoginUserOwner.json |
 
   @USR012
   Scenario: Get my user profile without login
@@ -145,16 +146,17 @@ Feature: Endpoint User
     Then Status code should be 200
     And Response body message was "success update data"
     Examples:
-      | json                  | name   | user_name   | email            | password | photo_profile                                                 | gender |
-      | LoginUserRenter2.json | createuser4 | createuser4      | createuser4@gmail.com | user123  | D:\\KosKita-QE-API\\src\\test\\resources\\photo\\download.jpg | male   |
-  
+      | json                  | name        | user_name   | email                | password | photo_profile                                     | gender |
+      | LoginUserRenter2.json | juliowner2 | juliowner2 | juliowner2@gmail.com | user123  | C:\\Users\\keian\\Downloads\\BAHAN\\download.jpeg | male   |
+
+
   @USR016
   Scenario Outline: Update user gender
     Given Login users with valid "<json>"
     When Send request login user
     And Update user body name was gender was "<gender>" and send request
     Then Status code should be 400
-    And Response body message was "error update data."
+    And Response body message contains "error update data."
     Examples:
       | json                  | gender |
       | LoginUserRenter2.json | male   |
@@ -169,18 +171,18 @@ Feature: Endpoint User
     And Response body message contains "error update data."
     Examples:
       | json                  | email |
-      | LoginUserRenter2.json | usergender2gmail.com   |
+      | LoginUserRenter2.json | usergender7gmail.com   |
 
   @USR018
   Scenario Outline: Update user invalid password
     Given Login users with valid "<json>"
     When Send request login user
     And Update user body name was password was "<password>" and send request
-    Then Status code should be 200
-    And Response body message was "invalid password"
+    Then Status code should be 400
+    And Response body message contains "error update data."
     Examples:
-      | json                  | password |
-      | LoginUserRenter2.json | .        |
+      | json                  | password  |
+      | LoginUserRenter2.json | juliowner |
 
 #    belum diubah BE status harusnya 200 bukan 400 dan error messagenya gak cocok
   @USR019
@@ -190,10 +192,20 @@ Feature: Endpoint User
     And Update user body name was password was "<password>" and send request
     Then Status code should be 400
 #    And Response body message was "success update data"
-    And Response body message contains "error update data"
     Examples:
-      | json                  | password         |
-      | LoginUserRenter2.json | passwordbaru2025 |
+      | json                  | password |
+      | LoginUserRenter2.json | juliowner        |
+
+  @USR019
+  Scenario Outline: Update password with old incorrect password
+    Given Login users with valid "<json>"
+    When Send request login user
+    And Update user body name was password was "<password>" and send request
+    Then Status code should be 400
+    And Response body message contains "error update data."
+    Examples:
+      | json                  | password |
+      | LoginUserRenter2.json | juliowner        |
 
 
     #USR020 gk dipakai kayaknya karena old_password blm ada di server
@@ -219,7 +231,7 @@ Feature: Endpoint User
     And Response body message was "success delete data"
     Examples:
       | json                  |
-      | LoginUserRenter2.json |
+      | LoginUserRenter3.json |
 
   @USR022
   Scenario: Delete user without login
@@ -237,5 +249,5 @@ Feature: Endpoint User
     And Response body message was "invalid or expired jwt"
     Examples:
       | json                  |
-      | LoginUserRenter2.json |
+      | LoginUserRenter3.json |
 

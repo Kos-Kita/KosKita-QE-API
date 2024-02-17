@@ -9,7 +9,7 @@ Scenario Outline: Successfully rating kos using renter
   And Response body message was "success rating score"
   Examples:
     | json                 | kos_id | RatingJson       |  |
-    | LoginUserRenter.json | 16     | RatingJson1.json |  |
+    | LoginUserRenter.json | 13      | RatingJson1.json |  |
 
   #[RTG002]
   Scenario Outline: Successfully rating kos other owner
@@ -20,7 +20,7 @@ Scenario Outline: Successfully rating kos using renter
     And Response body message was "success rating score"
     Examples:
       | json                | kos_id | RatingJson       |  |
-      | LoginUserOwner.json | 16     | RatingJson1.json |  |
+      | LoginUserOwner.json | 14     | RatingJson1.json |  |
 
     #[RTG003]
   Scenario Outline: Invalid rating kos owner it self
@@ -31,7 +31,7 @@ Scenario Outline: Successfully rating kos using renter
     And Response body message was "anda sudah pernah memberikan rating untuk kos ini"
     Examples:
       | json                | kos_id | RatingJson       |  |
-      | LoginUserOwner.json | 16     | RatingJson1.json |  |
+      | LoginUserOwner.json | 14     | RatingJson1.json |  |
 
     #[RTG004]
   Scenario Outline:  Invalid rating kos
@@ -42,7 +42,7 @@ Scenario Outline: Successfully rating kos using renter
     And Response body message was "skor hanya bisa 1 sampai 5"
     Examples:
       | json                | kos_id | RatingJson       |  |
-      | LoginUserOwner.json | 16     | RatingJson2.json |  |
+      | LoginUserOwner.json | 13     | RatingJson2.json |  |
 
     #[RTG005]
   Scenario Outline: gives the rating cost that has been given a rating
@@ -53,5 +53,5 @@ Scenario Outline: Successfully rating kos using renter
     And Response body message was "anda sudah pernah memberikan rating untuk kos ini"
     Examples:
       | json                | kos_id | RatingJson       |  |
-      | LoginUserOwner.json | 16     | RatingJson1.json |  |
+      | LoginUserOwner.json | 14     | RatingJson1.json |  |
 
