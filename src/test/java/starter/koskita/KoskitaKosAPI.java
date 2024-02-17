@@ -28,6 +28,7 @@ public class KoskitaKosAPI {
 
     @Step("Get kos")
     public void setGetKos(String address, String category, String minPrice, String maxPrice){
+
         SerenityRest.given()
                 .pathParam("address", address)
                 .pathParam("category", category)
