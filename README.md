@@ -1,6 +1,6 @@
 ## KosKita-QE-API
 
-![KosKita Logo](https://example.com/koskita_logo.png)
+![LOGO](docs/koskitaa-high-resolution-logo-black.jpg){: width="1280px"}
 
 Welcome to KosKita-QE-API! This repository contains automated testing scripts for KosKita's APIs. It leverages Selenium, IntelliJ, Rest Assured, Postman API, and Maven for seamless automation and testing.
 
@@ -10,7 +10,7 @@ Access the detailed API documentation [here](https://docs.google.com/spreadsheet
 
 ### Base URL
 
-The base URL for KosKita's APIs is `l3n.my.id`.
+The base URL for KosKita's APIs is `https://l3n.my.id`.
 
 ### Contributors
 
