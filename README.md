@@ -23,7 +23,7 @@ Meet the brilliant minds behind KosKita-QE-API:
 
 - **Andreas Firdaus**
   - Email: andreasfirdaus12@gmail.com
-  - GitHub: [![GitHub Logo](https://img.shields.io/badge/GitHub-rayariff-blue?style=social&logo=github)](https://github.com/andreasfirdaus)
+  - GitHub: [![GitHub Logo](https://img.shields.io/badge/GitHub-andreasfirdaus-blue?style=social&logo=github)](https://github.com/andreasfirdaus)
 
 
 ### Tools Used
