@@ -1,6 +1,7 @@
 ## KosKita-QE-API
 
-![LOGO](/koskitaa-high-resolution-logo-black.jpg){: width="1280px"}
+
+<img src="/koskitaa-high-resolution-logo-black.jpg" width="1280">
 
 Welcome to KosKita-QE-API! This repository contains automated testing scripts for KosKita's APIs. It leverages Selenium, IntelliJ, Rest Assured, Postman API, and Maven for seamless automation and testing.
 
